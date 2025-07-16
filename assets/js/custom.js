@@ -120,6 +120,7 @@ $(function () {
 
 
     $('.btn-expand').click(function (e) {
+        e.preventDefault();
         $(".work-list").toggleClass('expand');
     })
 
