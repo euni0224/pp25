@@ -123,9 +123,9 @@ $(function () {
         $(".work-list").toggleClass('expand');
     })
 
-    //푸터 스크롤업
-    $('.scroll-up').click(function (e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-    })
+    // //푸터 스크롤업
+    // $('.scroll-up').click(function (e) {
+    //     e.preventDefault();
+    //     window.scrollTo({ top: 0, behavior: 'smooth' })
+    // })
 })
