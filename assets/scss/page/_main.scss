@@ -20,18 +20,21 @@ main {
             padding-top: 300px;
         }
 
-        .work-list {
-            li+li {
-                margin-top: -492px;
-                // opacity: 0;
-                // visibility: hidden;
-            }
-            &.expand{
-                li{margin-top: 0px;}
-            }
-        }
-
         .work-item {
+            perspective :700px;
+            &.scroll-on {
+                a{
+                    transform: rotateX(0deg);
+                    opacity: 1;
+                }
+            }
+            &.scroll-on2 {
+                a{
+                    transform: rotateX(-15deg);
+                }
+            }
+
+            height: 100vh;
             position: relative;
 
             @for $i from 1 through 11 {
@@ -39,14 +42,15 @@ main {
                     z-index: #{12 - $i};
                 }
             }
+
             transition: 0.5s;
             width: 100%;
-            height: 100%;
             @include flex-center-mid;
             a {
-                transform: skew(-20deg, 340deg);
+                opacity: 0.5;
+                transition: 1s;
                 position: relative;
-
+                transform: rotateX(15deg);
                 &:hover {
                     .img-box {
                         opacity: 0.3;
@@ -60,7 +64,7 @@ main {
 
             .img-box {
                 transition: 0.5s;
-                max-width: 800px;
+                max-width: 1000px;
                 border: 10px solid #454545;
                 border-radius: 20px;
                 background: #454545;

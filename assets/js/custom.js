@@ -107,10 +107,19 @@ $(function () {
         ScrollTrigger.create({
             trigger: scrolladd,
             start: 'top center',
+            end: 'bottom center',
             markers: true,
             scrub: 5,
             onEnter: function () {
                 scrolladd.addClass('scroll-on');
+            },
+            onLeave: function () {
+                scrolladd.removeClass('scroll-on');
+                scrolladd.addClass('scroll-on2');
+            },
+            onEnterBack: function () {
+                scrolladd.addClass('scroll-on');
+                scrolladd.removeClass('scroll-on2');
             },
             onLeaveBack: function () {
                 scrolladd.removeClass('scroll-on');
