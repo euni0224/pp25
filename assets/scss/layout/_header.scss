@@ -1,0 +1,9 @@
+#hd{
+    .logo{
+        position: fixed;
+        top: 40px;left: 40px;
+        
+        font-family: 'GasoekOne-Regular';
+        font-size: clamp(28px, calc( 40 / 1600 * 100vw ), 40px); 
+    }
+}

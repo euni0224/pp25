@@ -1,0 +1,40 @@
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+}
+
+.inner {
+}
+
+.fz110-28 { font-size: clamp(28px, calc( 110 / var(--inner) * 100vw ), 110px); } 
+
+
+body{
+    font-family: 'RiaSans-ExtraBold' ;
+    background: #000000;color: #fff;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+        /* 스크롤바의 너비 */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        height: 10%;
+        /* 스크롤바의 길이 */
+        background: #001025;
+        /* 스크롤바의 색상 */
+        width: 8px;
+
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgba(33, 122, 244, .1);
+        /*스크롤바 뒷 배경 색상*/
+    }
+}
+

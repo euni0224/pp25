@@ -1,0 +1,118 @@
+$mobilemin: 500px; //
+$mobile: 767px; //501
+$tablet: 1023px; // 768
+$desktop: 1200px; //1024
+$desktopplus: 1600px; //1201
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes T360Turn {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes updown {
+    0% {
+        transform: translate(-50%, -70%);
+        top: 50%;
+        left: 50%;
+    }
+
+    100% {
+        transform: translate(-50%, -10%);
+        top: 50%;
+        left: 50%;
+    }
+}
+
+@mixin wh100 {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin flex-center-mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    @content;
+}
+
+@mixin flex-mid {
+    display: flex;
+    align-items: center;
+    @content;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+    @content;
+}
+
+@mixin absolute_top_left_center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+@mixin mobilemin {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+/*반응형, 브라우저 크기가 768이상, 1023px 이하일때*/
+@mixin tablet {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+/*반응형, 브라우저 크기가 1024px 이상일때*/
+@mixin desktop {
+    @media (max-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin desktopplus {
+    @media (max-width: $desktopplus) {
+        @content;
+    }
+}

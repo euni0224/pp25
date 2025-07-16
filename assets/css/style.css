@@ -1,0 +1,334 @@
+@charset "UTF-8";
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes T360Turn {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes updown {
+  0% {
+    transform: translate(-50%, -70%);
+    top: 50%;
+    left: 50%;
+  }
+  100% {
+    transform: translate(-50%, -10%);
+    top: 50%;
+    left: 50%;
+  }
+}
+/*반응형, 브라우저 크기가 768이상, 1023px 이하일때*/
+/*반응형, 브라우저 크기가 1024px 이상일때*/
+@font-face {
+  font-family: "RiaSans-ExtraBold";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/RiaSans-ExtraBold.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GasoekOne-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/GasoekOne-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Aggro";
+  src: url("/assets/font/Aggro-Bold.ttf") format("ttf");
+  font-weight: 900;
+}
+@font-face {
+  font-family: "Aggro";
+  src: url("/assets/font/Aggro-Light.ttf") format("ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Aggro";
+  src: url("/assets/font/Aggro-Medium.ttf") format("ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/font/Pretendard-Thin.woff") format("woff");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/font/Pretendard-ExtraLight.woff") format("woff");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/font/Pretendard-Light.woff") format("woff");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/font/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/font/Pretendard-Medium.woff") format("woff");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/font/Pretendard-SemiBold.woff") format("woff");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/font/Pretendard-Bold.woff") format("woff");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/font/Pretendard-ExtraBold.woff") format("woff");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("/assets/font/Pretendard-Black.woff") format("woff");
+  font-weight: 900;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+:root {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  cursor: default;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+html, body {
+  height: 100%;
+  line-height: 1;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+img, video {
+  width: 100%;
+  height: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset, input {
+  border: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Pretendard", "Aggro";
+}
+
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  clip: rect(0 0 0 0);
+}
+
+.fz110-28 {
+  font-size: clamp(28px, 110 / var(--inner) * 100vw, 110px);
+}
+
+body {
+  font-family: "RiaSans-ExtraBold";
+  background: #000000;
+  color: #fff;
+}
+body::-webkit-scrollbar {
+  width: 8px;
+  /* 스크롤바의 너비 */
+}
+body::-webkit-scrollbar-thumb {
+  height: 10%;
+  /* 스크롤바의 길이 */
+  background: #001025;
+  /* 스크롤바의 색상 */
+  width: 8px;
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-track {
+  background: rgba(33, 122, 244, 0.1);
+  /*스크롤바 뒷 배경 색상*/
+}
+
+#hd .logo {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  font-family: "GasoekOne-Regular";
+  font-size: clamp(28px, 2.5vw, 40px);
+}
+
+main .se-01 {
+  height: 100vh;
+  width: 100%;
+}
+main .se-01 .group-se {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .se-01 h2 {
+  font-size: clamp(28px, 3vw, 48px);
+}
+main .se-02 .group-se {
+  padding-top: 300px;
+}
+main .se-02 .work-list li + li {
+  margin-top: -492px;
+}
+main .se-02 .work-list.expand li {
+  margin-top: 0px;
+}
+main .se-02 .work-item {
+  position: relative;
+  transition: 0.5s;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .se-02 .work-item:nth-child(1) {
+  z-index: 11;
+}
+main .se-02 .work-item:nth-child(2) {
+  z-index: 10;
+}
+main .se-02 .work-item:nth-child(3) {
+  z-index: 9;
+}
+main .se-02 .work-item:nth-child(4) {
+  z-index: 8;
+}
+main .se-02 .work-item:nth-child(5) {
+  z-index: 7;
+}
+main .se-02 .work-item:nth-child(6) {
+  z-index: 6;
+}
+main .se-02 .work-item:nth-child(7) {
+  z-index: 5;
+}
+main .se-02 .work-item:nth-child(8) {
+  z-index: 4;
+}
+main .se-02 .work-item:nth-child(9) {
+  z-index: 3;
+}
+main .se-02 .work-item:nth-child(10) {
+  z-index: 2;
+}
+main .se-02 .work-item:nth-child(11) {
+  z-index: 1;
+}
+main .se-02 .work-item a {
+  transform: skew(-20deg, 340deg);
+  position: relative;
+}
+main .se-02 .work-item a:hover .img-box {
+  opacity: 0.3;
+}
+main .se-02 .work-item a:hover .text-box {
+  opacity: 1;
+}
+main .se-02 .work-item .img-box {
+  transition: 0.5s;
+  max-width: 800px;
+  border: 10px solid #454545;
+  border-radius: 20px;
+  background: #454545;
+}
+main .se-02 .work-item .img-box img {
+  border-radius: 15px;
+}
+main .se-02 .work-item .text-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  opacity: 0;
+  transition: 0.5s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+main .se-02 .work-item .text-box h3 {
+  font-size: clamp(30px, 6.25vw, 100px);
+  margin: 20px 0;
+  color: #ffe200;
+}
+main .se-02 .work-item .text-box .year {
+  font-size: 34px;
+}

@@ -1,0 +1,98 @@
+main {
+    .se-01 {
+        height: 100vh;
+        width: 100%;
+
+        .group-se {
+            @include wh100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            font-size: clamp(28px, calc(48 / 1600 * 100vw), 48px);
+        }
+    }
+
+    .se-02 {
+        .group-se {
+            padding-top: 300px;
+        }
+
+        .work-list {
+            li+li {
+                margin-top: -492px;
+                // opacity: 0;
+                // visibility: hidden;
+            }
+            &.expand{
+                li{margin-top: 0px;}
+            }
+        }
+
+        .work-item {
+            position: relative;
+
+            @for $i from 1 through 11 {
+                &:nth-child(#{$i}) {
+                    z-index: #{12 - $i};
+                }
+            }
+            transition: 0.5s;
+            width: 100%;
+            height: 100%;
+            @include flex-center-mid;
+            a {
+                transform: skew(-20deg, 340deg);
+                position: relative;
+
+                &:hover {
+                    .img-box {
+                        opacity: 0.3;
+                    }
+
+                    .text-box {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .img-box {
+                transition: 0.5s;
+                max-width: 800px;
+                border: 10px solid #454545;
+                border-radius: 20px;
+                background: #454545;
+
+                img {
+                    border-radius: 15px;
+                }
+            }
+
+            .text-box {
+                @include wh100;
+
+                @include flex-column {
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                white-space: nowrap;
+                opacity: 0;
+                transition: 0.5s;
+                @include absolute_top_left_center;
+
+                h3 {
+                    font-size: clamp(30px, calc(100 / 1600 * 100vw), 100px);
+                    margin: 20px 0;
+                    color: #ffe200;
+                }
+
+                .year {
+                    font-size: 34px;
+                }
+            }
+        }
+    }
+}
