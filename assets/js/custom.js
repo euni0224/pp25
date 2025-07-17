@@ -67,9 +67,9 @@ intro
         effects: true,
         smoothTouch: 0.1,
     });
-    $(window).resize(function () {
-        location.reload();
-    });
+    // $(window).resize(function () {
+    //     location.reload();
+    // });
 
     // Cursor custom
     const cursor = document.querySelector('#cursor'); // cursor
