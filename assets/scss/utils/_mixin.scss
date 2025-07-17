@@ -77,11 +77,11 @@ $desktopplus: 1600px; //1201
     @content;
 }
 
-@mixin absolute_top_left_center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+@mixin absolute_top_left_center($extraTransform: null) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) #{$extraTransform};
 }
 
 

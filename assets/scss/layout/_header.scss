@@ -1,9 +1,22 @@
-#hd{
-    .logo{
+#hd {
+    .logo {
         position: fixed;
-        top: 40px;left: 40px;
-        
+        display: block !important;
+        top: 40px;
+        left: 40px;
+        z-index: 51;
         font-family: 'GasoekOne-Regular';
-        font-size: clamp(28px, calc( 40 / 1600 * 100vw ), 40px); 
+        font-size: clamp(28px, calc(40 / 1600 * 100vw), 40px);
+        transition: 2s;
+        a{display: block;width: fit-content;transition: 2s;}
+
+        &.intro {
+            top: 50%;
+        left: 50%;
+            a{
+                transform: translate(-50%, -50%);
+            }
+            font-size: clamp(80px, calc(150 / 1600 * 100vw), 150px);
+        }
     }
 }

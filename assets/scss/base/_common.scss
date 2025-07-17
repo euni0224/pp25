@@ -7,15 +7,17 @@
     clip: rect(0 0 0 0);
 }
 
-.inner {
+.inner {padding: 0 40px;}
+
+.fz110-28 {
+    font-size: clamp(28px, calc(110 / var(--inner) * 100vw), 110px);
 }
 
-.fz110-28 { font-size: clamp(28px, calc( 110 / var(--inner) * 100vw ), 110px); } 
 
-
-body{
-    font-family: 'RiaSans-ExtraBold' ;
-    background: #000000;color: #fff;
+body {
+    font-family: 'RiaSans-ExtraBold';
+    background: #252525;
+    color: #fff;
 
     &::-webkit-scrollbar {
         width: 8px;
@@ -38,3 +40,101 @@ body{
     }
 }
 
+#cursor {
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    will-change: transform;
+
+    .cur_cir {
+        width: 32px;
+        height: 32px;
+        border: 1px solid #ffffff;
+        margin-top: -50%;
+        margin-left: -50%;
+        border-radius: 50%;
+        transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        // opacity: 0;
+    }
+
+    &.overlay {
+        mix-blend-mode: normal;
+
+        .cur_cir {
+            width: 117px;
+            height: 117px;
+            transform: rotate(0) scale(1) translate(0, 0) !important;
+            position: relative;
+            opacity: 1;
+            background-color: #ffdd00;
+            border: 1px solid #ffffff00;
+
+            &::before {
+                content: "view";
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #fff;
+                font-size: 20px;
+                font-family: "Play", sans-serif;
+                font-weight: 700;
+                letter-spacing: -0.03em;
+            }
+        }
+
+        // &.close {
+        //     .cur_cir {
+        //         background-color: #db590f;
+
+        //         &::before {
+        //             content: "close";
+        //         }
+        //     }
+
+        //     &.pointer {
+        //         .cur_cir {
+        //             width: 150px;
+        //             height: 150px;
+        //             background-color: rgba(64, 110, 182, 0.7);
+        //             opacity: 1;
+
+        //             &::before {
+        //                 content: "more";
+        //             }
+        //         }
+        //     }
+        // }
+    }
+
+    // &.pointer {
+    //     .cur_cir {
+    //         width: 117px;
+    //         height: 117px;
+    //         transform: rotate(0) scale(1) translate(0, 0) !important;
+    //         position: relative;
+    //         opacity: 1;
+    //         background-color: #406eb6;
+
+    //         &::before {
+    //             content: "more";
+    //             display: block;
+    //             position: absolute;
+    //             top: 50%;
+    //             left: 50%;
+    //             transform: translate(-50%, -50%);
+    //             color: #fff;
+    //             font-size: 20px;
+    //             font-family: "Play", sans-serif;
+    //             font-weight: 700;
+    //             letter-spacing: -0.03em;
+    //         }
+    //     }
+    // }
+}

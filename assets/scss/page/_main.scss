@@ -1,3 +1,37 @@
+.intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 50;
+
+
+    ul {
+        width: 150%;
+        height: 200%;
+        transform: rotate(23deg) translate(-20%, -20%);
+        transform-origin: center;
+
+        display: flex;
+
+        li {
+            position: relative;
+            height: 100%;
+            width: 20%;
+
+            div {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+            }
+        }
+    }
+}
+
 main {
     .se-01 {
         height: 100vh;
@@ -11,30 +45,44 @@ main {
         }
 
         h2 {
-            font-size: clamp(28px, calc(48 / 1600 * 100vw), 48px);
+            font-size: clamp(28px, calc(58/ 1600 * 100vw), 58px);
+            line-height: 1.5;
+            visibility: hidden;
+
+            &>div {
+
+                text-align: center !important;
+                // &>div {
+                //     opacity: 0;
+                // }
+            }
         }
     }
 
     .se-02 {
-        .group-se {
-            padding-top: 300px;
-        }
 
         .work-item {
-            perspective :700px;
+
+            perspective: 700px;
+
             &.scroll-on {
-                a{
+                a {
                     transform: rotateX(0deg);
                     opacity: 1;
                 }
             }
+
             &.scroll-on2 {
-                a{
+                a {
                     transform: rotateX(-15deg);
                 }
             }
 
-            height: 100vh;
+            height: 90vh;
+            @include mobile{
+                padding: 80px 0;
+                    height: auto;
+                }
             position: relative;
 
             @for $i from 1 through 11 {
@@ -46,11 +94,13 @@ main {
             transition: 0.5s;
             width: 100%;
             @include flex-center-mid;
+
             a {
                 opacity: 0.5;
                 transition: 1s;
                 position: relative;
                 transform: rotateX(15deg);
+
                 &:hover {
                     .img-box {
                         opacity: 0.3;
@@ -58,12 +108,16 @@ main {
 
                     .text-box {
                         opacity: 1;
+                        transform: translate(-50%, -50%) skewX(0deg);
                     }
                 }
             }
 
             .img-box {
                 transition: 0.5s;
+                @include desktop{
+                    max-width: 70vw;
+                }
                 max-width: 1000px;
                 border: 10px solid #454545;
                 border-radius: 20px;
@@ -85,7 +139,7 @@ main {
                 white-space: nowrap;
                 opacity: 0;
                 transition: 0.5s;
-                @include absolute_top_left_center;
+                @include absolute_top_left_center("skewX(-15deg)");
 
                 h3 {
                     font-size: clamp(30px, calc(100 / 1600 * 100vw), 100px);

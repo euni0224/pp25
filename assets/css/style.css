@@ -190,13 +190,17 @@ body {
   clip: rect(0 0 0 0);
 }
 
+.inner {
+  padding: 0 40px;
+}
+
 .fz110-28 {
   font-size: clamp(28px, 110 / var(--inner) * 100vw, 110px);
 }
 
 body {
   font-family: "RiaSans-ExtraBold";
-  background: #000000;
+  background: #252525;
   color: #fff;
 }
 body::-webkit-scrollbar {
@@ -216,12 +220,127 @@ body::-webkit-scrollbar-track {
   /*스크롤바 뒷 배경 색상*/
 }
 
+#cursor {
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+#cursor .cur_cir {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ffffff;
+  margin-top: -50%;
+  margin-left: -50%;
+  border-radius: 50%;
+  transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+#cursor.overlay {
+  mix-blend-mode: normal;
+}
+#cursor.overlay .cur_cir {
+  width: 117px;
+  height: 117px;
+  transform: rotate(0) scale(1) translate(0, 0) !important;
+  position: relative;
+  opacity: 1;
+  background-color: #ffdd00;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+#cursor.overlay .cur_cir::before {
+  content: "view";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 20px;
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
 #hd .logo {
   position: fixed;
+  display: block !important;
   top: 40px;
   left: 40px;
+  z-index: 51;
   font-family: "GasoekOne-Regular";
   font-size: clamp(28px, 2.5vw, 40px);
+  transition: 2s;
+}
+#hd .logo a {
+  display: block;
+  width: fit-content;
+  transition: 2s;
+}
+#hd .logo.intro {
+  top: 50%;
+  left: 50%;
+  font-size: clamp(80px, 9.375vw, 150px);
+}
+#hd .logo.intro a {
+  transform: translate(-50%, -50%);
+}
+
+#ft {
+  padding: 80px 0;
+}
+#ft h3 {
+  font-size: clamp(28px, 2.5vw, 40px);
+}
+#ft .ft-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+}
+#ft a {
+  font-size: clamp(18px, 1.5vw, 24px);
+  transition: 0.5s;
+  opacity: 0.5;
+}
+#ft a:hover {
+  opacity: 0.8;
+}
+#ft p {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 50;
+}
+.intro ul {
+  width: 150%;
+  height: 200%;
+  transform: rotate(23deg) translate(-20%, -20%);
+  transform-origin: center;
+  display: flex;
+}
+.intro ul li {
+  position: relative;
+  height: 100%;
+  width: 20%;
+}
+.intro ul li div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
 }
 
 main .se-01 {
@@ -236,14 +355,16 @@ main .se-01 .group-se {
   align-items: center;
 }
 main .se-01 h2 {
-  font-size: clamp(28px, 3vw, 48px);
+  font-size: clamp(28px, 3.625vw, 58px);
+  line-height: 1.5;
+  visibility: hidden;
 }
-main .se-02 .group-se {
-  padding-top: 300px;
+main .se-01 h2 > div {
+  text-align: center !important;
 }
 main .se-02 .work-item {
   perspective: 700px;
-  height: 100vh;
+  height: 90vh;
   position: relative;
   transition: 0.5s;
   width: 100%;
@@ -257,6 +378,12 @@ main .se-02 .work-item.scroll-on a {
 }
 main .se-02 .work-item.scroll-on2 a {
   transform: rotateX(-15deg);
+}
+@media (max-width: 767px) {
+  main .se-02 .work-item {
+    padding: 80px 0;
+    height: auto;
+  }
 }
 main .se-02 .work-item:nth-child(1) {
   z-index: 11;
@@ -302,6 +429,7 @@ main .se-02 .work-item a:hover .img-box {
 }
 main .se-02 .work-item a:hover .text-box {
   opacity: 1;
+  transform: translate(-50%, -50%) skewX(0deg);
 }
 main .se-02 .work-item .img-box {
   transition: 0.5s;
@@ -309,6 +437,11 @@ main .se-02 .work-item .img-box {
   border: 10px solid #454545;
   border-radius: 20px;
   background: #454545;
+}
+@media (max-width: 1200px) {
+  main .se-02 .work-item .img-box {
+    max-width: 70vw;
+  }
 }
 main .se-02 .work-item .img-box img {
   border-radius: 15px;
@@ -326,7 +459,7 @@ main .se-02 .work-item .text-box {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) skewX(-15deg);
 }
 main .se-02 .work-item .text-box h3 {
   font-size: clamp(30px, 6.25vw, 100px);
