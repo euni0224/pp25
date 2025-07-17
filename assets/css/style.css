@@ -281,7 +281,7 @@ body::-webkit-scrollbar-track {
 #hd .logo.intro {
   top: 50%;
   left: 50%;
-  font-size: clamp(80px, 9.375vw, 150px);
+  font-size: clamp(60px, 9.375vw, 150px);
 }
 #hd .logo.intro a {
   transform: translate(-50%, -50%);

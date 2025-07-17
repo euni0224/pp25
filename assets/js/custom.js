@@ -25,7 +25,7 @@ $(function () {
     }
 
     // 최초 실행 및 리사이즈 대응
-    $(window).on("load resize", function () {
+    $(window).on("load ", function () {
         setup();
     });
 
