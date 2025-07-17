@@ -168,7 +168,7 @@ intro
             trigger: scrolladd,
             start: 'top center+=20%',
             end: 'bottom center',
-            markers: true,
+            // markers: true,
             scrub: 5,
             onEnter: function () {
                 scrolladd.addClass('scroll-on');
