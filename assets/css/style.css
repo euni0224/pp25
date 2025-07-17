@@ -278,6 +278,12 @@ body::-webkit-scrollbar-track {
   font-size: clamp(28px, 2.5vw, 40px);
   transition: 2s;
 }
+@media (max-width: 767px) {
+  #hd .logo {
+    top: 20px;
+    left: 20px;
+  }
+}
 #hd .logo a {
   display: block;
   width: fit-content;

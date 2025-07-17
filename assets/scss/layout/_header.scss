@@ -8,7 +8,12 @@
         font-family: 'GasoekOne-Regular';
         font-size: clamp(28px, calc(40 / 1600 * 100vw), 40px);
         transition: 2s;
+         @include mobile{
+        top: 20px;
+        left: 20px;
+    }
         a{display: block;width: fit-content;transition: 2s;}
+
 
         &.intro {
             top: 50%;
