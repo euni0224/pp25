@@ -8,7 +8,7 @@
 
 
     ul {
-        width: 150%;
+        width: 200%;
         height: 200%;
         transform: rotate(23deg) translate(-20%, -20%);
         transform-origin: center;
@@ -80,7 +80,7 @@ main {
 
             height: 90vh;
             @include mobile{
-                padding: 80px 0;
+                padding: 40px 0;
                     height: auto;
                 }
             position: relative;
@@ -118,10 +118,15 @@ main {
                 @include desktop{
                     max-width: 70vw;
                 }
+                @include mobile{
+                     max-width: 90vw;
+                      border: 5px solid #454545;
+                }
                 max-width: 1000px;
                 border: 10px solid #454545;
                 border-radius: 20px;
                 background: #454545;
+                
 
                 img {
                     border-radius: 15px;

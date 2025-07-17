@@ -315,8 +315,9 @@ body::-webkit-scrollbar-track {
   opacity: 0.8;
 }
 #ft p {
-  font-size: 14px;
+  font-size: 10px;
   opacity: 0.5;
+  width: 100%;
 }
 
 .intro {
@@ -328,7 +329,7 @@ body::-webkit-scrollbar-track {
   z-index: 50;
 }
 .intro ul {
-  width: 150%;
+  width: 200%;
   height: 200%;
   transform: rotate(23deg) translate(-20%, -20%);
   transform-origin: center;
@@ -386,7 +387,7 @@ main .se-02 .work-item.scroll-on2 a {
 }
 @media (max-width: 767px) {
   main .se-02 .work-item {
-    padding: 80px 0;
+    padding: 40px 0;
     height: auto;
   }
 }
@@ -446,6 +447,12 @@ main .se-02 .work-item .img-box {
 @media (max-width: 1200px) {
   main .se-02 .work-item .img-box {
     max-width: 70vw;
+  }
+}
+@media (max-width: 767px) {
+  main .se-02 .work-item .img-box {
+    max-width: 90vw;
+    border: 5px solid #454545;
   }
 }
 main .se-02 .work-item .img-box img {
