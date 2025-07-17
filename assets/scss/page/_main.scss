@@ -45,7 +45,7 @@ main {
         }
 
         h2 {
-            font-size: clamp(28px, calc(58/ 1600 * 100vw), 58px);
+            font-size: clamp(24px, calc(58/ 1600 * 100vw), 58px);
             line-height: 1.5;
             visibility: hidden;
 
