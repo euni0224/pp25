@@ -7,7 +7,12 @@
     clip: rect(0 0 0 0);
 }
 
-.inner {padding: 0 40px;}
+.inner {
+    padding: 0 40px;
+    @include mobile{
+        padding: 0 20px;
+    }
+}
 
 .fz110-28 {
     font-size: clamp(28px, calc(110 / var(--inner) * 100vw), 110px);

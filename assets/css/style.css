@@ -193,6 +193,11 @@ body {
 .inner {
   padding: 0 40px;
 }
+@media (max-width: 767px) {
+  .inner {
+    padding: 0 20px;
+  }
+}
 
 .fz110-28 {
   font-size: clamp(28px, 110 / var(--inner) * 100vw, 110px);
