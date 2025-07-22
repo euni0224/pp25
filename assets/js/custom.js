@@ -31,37 +31,37 @@ $(function () {
 
     gsap.set("html, body", { overflow: "hidden" });
 
-const intro = gsap.timeline({
-    defaults: {
-        duration: 2,
-    },
-});
+    const intro = gsap.timeline({
+        defaults: {
+            duration: 2,
+        },
+    });
 
-intro
-    .addLabel("intro_1")
-    .to(".intro ul", {
-        width: "100%",
-        height: "100%",
-        transform: "rotate(0deg) translate(0%, 0%)"
-    }, "intro_1")
-    .to(".intro li div", { width: "0%" }, "intro_1")
+    intro
+        .addLabel("intro_1")
+        .to(".intro ul", {
+            width: "100%",
+            height: "100%",
+            transform: "rotate(0deg) translate(0%, 0%)"
+        }, "intro_1")
+        .to(".intro li div", { width: "0%" }, "intro_1")
 
-    .add(() => {
-        setTimeout(() => {
-            $("#hd h1").removeClass("intro");
-        }, 300);
-    }, "intro_1")
+        .add(() => {
+            setTimeout(() => {
+                $("#hd h1").removeClass("intro");
+            }, 300);
+        }, "intro_1")
 
-    .addLabel("intro_2")
-    .to(".intro", { display: "none" }, "intro_2")
-    .to("html, body", { overflow: "visible" }, "intro_2")
+        .addLabel("intro_2")
+        .to(".intro", { display: "none" }, "intro_2")
+        .to("html, body", { overflow: "visible" }, "intro_2")
 
-    // 여기서 h2를 보이게 만들고 animateWords 실행
-    .set(".se-01 h2", { visibility: "visible" }, "intro_2")
-    .add(() => { animateWords(); }, "intro_2");
+        // 여기서 h2를 보이게 만들고 animateWords 실행
+        .set(".se-01 h2", { visibility: "visible" }, "intro_2")
+        .add(() => { animateWords(); }, "intro_2");
 
     //스크롤 부드럽게
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrambleTextPlugin,SplitText);
     ScrollSmoother.create({
         smooth: 2,
         effects: true,
@@ -162,6 +162,17 @@ intro
     });
 
 
+
+    $(window).scroll(function () {
+        const scroll = $(window).scrollTop();
+        if (scroll > 100) {
+            $('.se-03').addClass('scroll_d');
+        } else {
+            $('.se-03').removeClass('scroll_d');
+        }
+    });
+
+
     $('.work-item').each(function () {
         const scrolladd = $(this);
         ScrollTrigger.create({
@@ -198,6 +209,35 @@ intro
     //     e.preventDefault();
     //     window.scrollTo({ top: 0, behavior: 'smooth' })
     // })
+    const st = SplitText.create("p", { type: "chars", charsClass: "char" });
+
+    st.chars.forEach((char) => {
+        gsap.set(char, { attr: { "data-content": char.innerHTML } });
+    });
+
+    const textBlock = document.querySelector(".text-block");
+
+    textBlock.onpointermove = (e) => {
+        st.chars.forEach((char) => {
+            const rect = char.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dx = e.clientX - cx;
+            const dy = e.clientY - cy;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 100)
+                gsap.to(char, {
+                    overwrite: true,
+                    duration: 1.2 - dist / 100,
+                    scrambleText: {
+                        text: char.dataset.content,
+                        chars: ".:",
+                        speed: 0.5,
+                    },
+                    ease: 'none'
+                });
+        });
+    };
 
 
 

@@ -39,9 +39,7 @@ main {
 
         .group-se {
             @include wh100;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include flex-center-mid;
         }
 
         h2 {
@@ -57,25 +55,82 @@ main {
                 // }
             }
         }
-        .work-top{
-            display: flex;gap: 5px;
-            align-items: center;
-            i{
-                flex: 1;
-                display: block;
-                height: 1px;background: #696969;
-            }
-            span{
-                text-transform: uppercase;
-                font-size: clamp(24px, calc(58/ 1600 * 100vw), 58px);
-            }
-        }
-        padding-bottom: 40px;
+
     }
 
     .se-02 {
-        .work-list{
-            @include mobile{
+        .char{
+            will-change: transform;
+        }
+    }
+
+    .se-03 {
+        &.scroll_d {
+            .work-top {
+                em {
+                    opacity: 1;
+                    transform: translateY(0%);
+                }
+
+                i {
+                    &::before {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .work-top {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+
+            i {
+                flex: 1;
+                position: relative;
+                display: block;
+                height: 2px;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0%;
+                    height: 2px;
+                    background: #696969;
+                    display: block;
+                    transition: 0.5s;
+                }
+
+                &:last-child {
+                    &::before {
+                        transition-delay: 1.7s;
+                    }
+                }
+            }
+
+            span {
+                overflow: hidden;
+                font-size: clamp(24px, calc(58/ 1600 * 100vw), 58px);
+                display: flex;
+            }
+
+            em {
+                opacity: 0;
+                transition: 0.5s;
+                transform: translateY(100%);
+
+                @for $i from 1 through 12 {
+                    &:nth-child(#{$i}) {
+                        transition-delay: #{0.4 + (0.1 * $i)}s;
+                    }
+                }
+            }
+        }
+
+        .work-list {
+            @include mobile {
                 padding: 0 20px;
             }
         }
@@ -99,17 +154,21 @@ main {
 
             height: 90vh;
             min-height: 600px;
-            @include mobile{
-                    height: auto;
-                    min-height: auto;
-                    justify-content: start;
-                    border-bottom: 1px solid #696969;
-                    perspective: none;
-                    a{
-                        padding: 40px 0;
-                        display: block;width: 100%;
-                    }
+
+            @include mobile {
+                height: auto;
+                min-height: auto;
+                justify-content: start;
+                border-bottom: 1px solid #696969;
+                perspective: none;
+
+                a {
+                    padding: 40px 0;
+                    display: block;
+                    width: 100%;
                 }
+            }
+
             position: relative;
 
             @for $i from 1 through 11 {
@@ -141,22 +200,26 @@ main {
             }
 
             .img-box {
-                @include mobile{
+                @include mobile {
                     display: none;
                 }
+
                 transition: 0.5s;
-                @include desktop{
+
+                @include desktop {
                     max-width: 70vw;
                 }
-                @include mobile{
-                     max-width: 90vw;
-                      border: 5px solid #454545;
+
+                @include mobile {
+                    max-width: 90vw;
+                    border: 5px solid #454545;
                 }
+
                 max-width: 1000px;
                 border: 10px solid #454545;
                 border-radius: 20px;
                 background: #454545;
-                
+
 
                 img {
                     border-radius: 15px;
@@ -164,8 +227,11 @@ main {
             }
 
             .text-box {
-                @include mobile{
-                    position: relative;top: 0;left: 0;transform: translate(0,0) !important;
+                @include mobile {
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    transform: translate(0, 0) !important;
                     opacity: 1;
                     flex-direction: row;
                     justify-content: start;
@@ -173,22 +239,25 @@ main {
                     width: 100%;
 
                 }
-                @include mobilemin{
+
+                @include mobilemin {
                     flex-wrap: wrap;
                 }
+
                 @include wh100;
 
                 @include flex-column {
                     align-items: center;
                     justify-content: center;
                 }
+
                 white-space: nowrap;
                 opacity: 0;
                 transition: 0.5s;
                 @include absolute_top_left_center("skewX(-15deg)");
 
                 h3 {
-                    @include mobile{
+                    @include mobile {
                         margin: 0;
                         order: -1;
                     }
@@ -200,22 +269,28 @@ main {
 
                 .year {
                     font-size: 34px;
-                    @include mobile{
+
+                    @include mobile {
                         font-size: 14px;
                     }
                 }
-                .tag{
-                    @include mobile{
+
+                .tag {
+                    @include mobile {
                         flex: 1;
                         font-size: 12px;
-                        display: flex;flex-wrap: wrap;gap: 5px;
-                        em{
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 5px;
+
+                        em {
                             padding: 5px 10px;
                             border: 1px solid #696969;
                             border-radius: 25px;
                         }
                     }
-                    @include mobilemin{
+
+                    @include mobilemin {
                         width: 100%;
                         flex: none;
                     }
