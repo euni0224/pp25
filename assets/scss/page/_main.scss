@@ -57,9 +57,28 @@ main {
                 // }
             }
         }
+        .work-top{
+            display: flex;gap: 5px;
+            align-items: center;
+            i{
+                flex: 1;
+                display: block;
+                height: 1px;background: #696969;
+            }
+            span{
+                text-transform: uppercase;
+                font-size: clamp(24px, calc(58/ 1600 * 100vw), 58px);
+            }
+        }
+        padding-bottom: 40px;
     }
 
     .se-02 {
+        .work-list{
+            @include mobile{
+                padding: 0 20px;
+            }
+        }
 
         .work-item {
 
@@ -79,9 +98,17 @@ main {
             }
 
             height: 90vh;
+            min-height: 600px;
             @include mobile{
-                padding: 40px 0;
                     height: auto;
+                    min-height: auto;
+                    justify-content: start;
+                    border-bottom: 1px solid #696969;
+                    perspective: none;
+                    a{
+                        padding: 40px 0;
+                        display: block;width: 100%;
+                    }
                 }
             position: relative;
 
@@ -114,6 +141,9 @@ main {
             }
 
             .img-box {
+                @include mobile{
+                    display: none;
+                }
                 transition: 0.5s;
                 @include desktop{
                     max-width: 70vw;
@@ -134,26 +164,61 @@ main {
             }
 
             .text-box {
+                @include mobile{
+                    position: relative;top: 0;left: 0;transform: translate(0,0) !important;
+                    opacity: 1;
+                    flex-direction: row;
+                    justify-content: start;
+                    gap: 10px;
+                    width: 100%;
+
+                }
+                @include mobilemin{
+                    flex-wrap: wrap;
+                }
                 @include wh100;
 
                 @include flex-column {
                     align-items: center;
                     justify-content: center;
                 }
-
                 white-space: nowrap;
                 opacity: 0;
                 transition: 0.5s;
                 @include absolute_top_left_center("skewX(-15deg)");
 
                 h3 {
-                    font-size: clamp(30px, calc(100 / 1600 * 100vw), 100px);
+                    @include mobile{
+                        margin: 0;
+                        order: -1;
+                    }
+
+                    font-size: clamp(24px, calc(100 / 1600 * 100vw), 100px);
                     margin: 20px 0;
                     color: #ffe200;
                 }
 
                 .year {
                     font-size: 34px;
+                    @include mobile{
+                        font-size: 14px;
+                    }
+                }
+                .tag{
+                    @include mobile{
+                        flex: 1;
+                        font-size: 12px;
+                        display: flex;flex-wrap: wrap;gap: 5px;
+                        em{
+                            padding: 5px 10px;
+                            border: 1px solid #696969;
+                            border-radius: 25px;
+                        }
+                    }
+                    @include mobilemin{
+                        width: 100%;
+                        flex: none;
+                    }
                 }
             }
         }

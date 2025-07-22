@@ -86,7 +86,7 @@ $desktopplus: 1600px; //1201
 
 
 @mixin mobilemin {
-    @media (max-width: $mobile) {
+    @media (max-width: $mobilemin) {
         @content;
     }
 }

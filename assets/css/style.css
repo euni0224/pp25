@@ -303,6 +303,7 @@ body::-webkit-scrollbar-track {
 }
 #ft h3 {
   font-size: clamp(28px, 2.5vw, 40px);
+  line-height: 1.5;
 }
 #ft .ft-bottom {
   display: flex;
@@ -358,6 +359,7 @@ body::-webkit-scrollbar-track {
 main .se-01 {
   height: 100vh;
   width: 100%;
+  padding-bottom: 40px;
 }
 main .se-01 .group-se {
   width: 100%;
@@ -374,9 +376,30 @@ main .se-01 h2 {
 main .se-01 h2 > div {
   text-align: center !important;
 }
+main .se-01 .work-top {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+main .se-01 .work-top i {
+  flex: 1;
+  display: block;
+  height: 1px;
+  background: #696969;
+}
+main .se-01 .work-top span {
+  text-transform: uppercase;
+  font-size: clamp(24px, 3.625vw, 58px);
+}
+@media (max-width: 767px) {
+  main .se-02 .work-list {
+    padding: 0 20px;
+  }
+}
 main .se-02 .work-item {
   perspective: 700px;
   height: 90vh;
+  min-height: 600px;
   position: relative;
   transition: 0.5s;
   width: 100%;
@@ -393,8 +416,16 @@ main .se-02 .work-item.scroll-on2 a {
 }
 @media (max-width: 767px) {
   main .se-02 .work-item {
-    padding: 40px 0;
     height: auto;
+    min-height: auto;
+    justify-content: start;
+    border-bottom: 1px solid #696969;
+    perspective: none;
+  }
+  main .se-02 .work-item a {
+    padding: 40px 0;
+    display: block;
+    width: 100%;
   }
 }
 main .se-02 .work-item:nth-child(1) {
@@ -450,6 +481,11 @@ main .se-02 .work-item .img-box {
   border-radius: 20px;
   background: #454545;
 }
+@media (max-width: 767px) {
+  main .se-02 .work-item .img-box {
+    display: none;
+  }
+}
 @media (max-width: 1200px) {
   main .se-02 .work-item .img-box {
     max-width: 70vw;
@@ -479,11 +515,60 @@ main .se-02 .work-item .text-box {
   left: 50%;
   transform: translate(-50%, -50%) skewX(-15deg);
 }
+@media (max-width: 767px) {
+  main .se-02 .work-item .text-box {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0) !important;
+    opacity: 1;
+    flex-direction: row;
+    justify-content: start;
+    gap: 10px;
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  main .se-02 .work-item .text-box {
+    flex-wrap: wrap;
+  }
+}
 main .se-02 .work-item .text-box h3 {
-  font-size: clamp(30px, 6.25vw, 100px);
+  font-size: clamp(24px, 6.25vw, 100px);
   margin: 20px 0;
   color: #ffe200;
 }
+@media (max-width: 767px) {
+  main .se-02 .work-item .text-box h3 {
+    margin: 0;
+    order: -1;
+  }
+}
 main .se-02 .work-item .text-box .year {
   font-size: 34px;
+}
+@media (max-width: 767px) {
+  main .se-02 .work-item .text-box .year {
+    font-size: 14px;
+  }
+}
+@media (max-width: 767px) {
+  main .se-02 .work-item .text-box .tag {
+    flex: 1;
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  main .se-02 .work-item .text-box .tag em {
+    padding: 5px 10px;
+    border: 1px solid #696969;
+    border-radius: 25px;
+  }
+}
+@media (max-width: 500px) {
+  main .se-02 .work-item .text-box .tag {
+    width: 100%;
+    flex: none;
+  }
 }
