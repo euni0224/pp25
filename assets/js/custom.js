@@ -61,7 +61,7 @@ $(function () {
         .add(() => { animateWords(); }, "intro_2");
 
     //스크롤 부드럽게
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrambleTextPlugin,SplitText);
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrambleTextPlugin, SplitText);
     ScrollSmoother.create({
         smooth: 2,
         effects: true,
@@ -163,16 +163,6 @@ $(function () {
 
 
 
-    $(window).scroll(function () {
-        const scroll = $(window).scrollTop();
-        if (scroll > 100) {
-            $('.se-03').addClass('scroll_d');
-        } else {
-            $('.se-03').removeClass('scroll_d');
-        }
-    });
-
-
     $('.work-item').each(function () {
         const scrolladd = $(this);
         ScrollTrigger.create({
@@ -231,13 +221,28 @@ $(function () {
                     duration: 1.2 - dist / 100,
                     scrambleText: {
                         text: char.dataset.content,
-                        chars: ".:",
+                        chars: "😆",
                         speed: 0.5,
                     },
                     ease: 'none'
                 });
         });
     };
+    const scrolladd = $('.se-03');
+
+    ScrollTrigger.create({
+        trigger: scrolladd,
+        start: 'top center+=20%',
+        end: 'bottom center',
+        markers: true,
+        scrub: 5,
+        onEnter: function () {
+            scrolladd.addClass('scroll-on');
+        },
+        onLeaveBack: function () {
+            scrolladd.removeClass('scroll-on');
+        }
+    });
 
 
 

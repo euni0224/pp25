@@ -59,13 +59,27 @@ main {
     }
 
     .se-02 {
-        .char{
+        font-size: clamp(18px, calc(28/ 1600 * 100vw), 28px);
+        padding: 40px 40px 150px;
+
+        p {
+            line-height: 1.5;
+
+            b {
+                font-size: clamp(22px, calc(32/ 1600 * 100vw), 32px);
+                font-weight: bold;
+                margin-bottom: 20px;
+                display: block;
+            }
+        }
+
+        .char {
             will-change: transform;
         }
     }
 
     .se-03 {
-        &.scroll_d {
+        &.scroll-on {
             .work-top {
                 em {
                     opacity: 1;
@@ -78,6 +92,16 @@ main {
                     }
                 }
             }
+
+            .group-se {
+                opacity: 1;
+            }
+        }
+
+        .group-se {
+            opacity: 0;
+            transition: 0.5s;
+            transition-delay: 2s;
         }
 
         .work-top {

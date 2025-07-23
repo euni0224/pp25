@@ -375,15 +375,36 @@ main .se-01 h2 {
 main .se-01 h2 > div {
   text-align: center !important;
 }
+main .se-02 {
+  font-size: clamp(18px, 1.75vw, 28px);
+  padding: 40px 40px 150px;
+}
+main .se-02 p {
+  line-height: 1.5;
+}
+main .se-02 p b {
+  font-size: clamp(22px, 2vw, 32px);
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: block;
+}
 main .se-02 .char {
   will-change: transform;
 }
-main .se-03.scroll_d .work-top em {
+main .se-03.scroll-on .work-top em {
   opacity: 1;
   transform: translateY(0%);
 }
-main .se-03.scroll_d .work-top i::before {
+main .se-03.scroll-on .work-top i::before {
   width: 100%;
+}
+main .se-03.scroll-on .group-se {
+  opacity: 1;
+}
+main .se-03 .group-se {
+  opacity: 0;
+  transition: 0.5s;
+  transition-delay: 2s;
 }
 main .se-03 .work-top {
   display: flex;
