@@ -1,5 +1,6 @@
 $(function () {
     let split, animation;
+    
 
     function setup() {
         // 기존 split/animation 초기화
@@ -25,9 +26,7 @@ $(function () {
     }
 
     // 최초 실행 및 리사이즈 대응
-    $(window).on("load ", function () {
         setup();
-    });
 
     gsap.set("html, body", { overflow: "hidden" });
 
@@ -241,6 +240,17 @@ $(function () {
         },
         onLeaveBack: function () {
             scrolladd.removeClass('scroll-on');
+        }
+    });
+
+    $(window).scroll(function () {
+        const window_scioll_T = $(window).scrollTop();
+        if (0 < window_scioll_T) {
+            $('.scroll-d').addClass('op');
+            // $('#top_btn').addClass('show');
+        } else {
+            $('.scroll-d').removeClass('op');
+            // $('#top_btn').removeClass('show');
         }
     });
 

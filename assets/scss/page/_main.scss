@@ -34,6 +34,7 @@
 
 main {
     .se-01 {
+        position: relative;
         background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0));
         height: 100vh;
         width: 100%;
@@ -57,12 +58,40 @@ main {
             }
         }
 
+        .scroll-d {
+            position: absolute;
+            bottom: 40px;
+            right: 20px;
+            writing-mode: sideways-lr;
+            display: flex;
+            white-space: nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            transition: 0.5s;
+            opacity: 1;
+            visibility: visible;
+            &.op{
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            svg {
+                transform: rotate(90deg);
+                width: 15px;
+                height: 15px;
+                order: -1;
+                animation: marquee 1s ease-in-out infinite;
+            }
+        }
+
     }
 
     .se-02 {
         font-size: clamp(18px, calc(28/ 1600 * 100vw), 28px);
         padding: 40px 80px 150px;
-        @include mobile{
+
+        @include mobile {
             padding: 40px 20px 80px;
         }
 

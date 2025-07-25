@@ -5,12 +5,15 @@ $desktop: 1200px; //1024
 $desktopplus: 1600px; //1201
 
 @keyframes marquee {
-    from {
-        transform: translateX(0);
+    0% {
+        transform: translateY(0) rotate(90deg);
     }
 
-    to {
-        transform: translateX(-50%);
+    50% {
+        transform: translateY(15px) rotate(90deg);
+    }
+    100% {
+        transform: translateY(0) rotate(90deg);
     }
 }
 
