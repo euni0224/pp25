@@ -45,7 +45,7 @@ main {
         }
 
         h2 {
-            font-size: clamp(24px, calc(58/ 1600 * 100vw), 58px);
+            font-size: clamp(22px, calc(58/ 1600 * 100vw), 58px);
             line-height: 1.5;
             visibility: hidden;
 
@@ -60,7 +60,7 @@ main {
 
         .scroll-d {
             position: absolute;
-            bottom: 40px;
+            bottom: 20px;
             right: 20px;
             writing-mode: sideways-lr;
             display: flex;
@@ -71,9 +71,16 @@ main {
             transition: 0.5s;
             opacity: 1;
             visibility: visible;
+            transform-origin: bottom right;
             &.op{
                 opacity: 0;
                 visibility: hidden;
+            }
+            @include mobile{
+                transform: scale(0.7);
+            }
+            @include mobilemin{
+                transform: scale(0.5);
             }
 
             svg {

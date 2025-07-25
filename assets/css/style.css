@@ -378,7 +378,7 @@ main .se-01 .group-se {
   align-items: center;
 }
 main .se-01 h2 {
-  font-size: clamp(24px, 3.625vw, 58px);
+  font-size: clamp(22px, 3.625vw, 58px);
   line-height: 1.5;
   visibility: hidden;
 }
@@ -387,7 +387,7 @@ main .se-01 h2 > div {
 }
 main .se-01 .scroll-d {
   position: absolute;
-  bottom: 40px;
+  bottom: 20px;
   right: 20px;
   writing-mode: sideways-lr;
   display: flex;
@@ -398,10 +398,21 @@ main .se-01 .scroll-d {
   transition: 0.5s;
   opacity: 1;
   visibility: visible;
+  transform-origin: bottom right;
 }
 main .se-01 .scroll-d.op {
   opacity: 0;
   visibility: hidden;
+}
+@media (max-width: 767px) {
+  main .se-01 .scroll-d {
+    transform: scale(0.7);
+  }
+}
+@media (max-width: 500px) {
+  main .se-01 .scroll-d {
+    transform: scale(0.5);
+  }
 }
 main .se-01 .scroll-d svg {
   transform: rotate(90deg);
